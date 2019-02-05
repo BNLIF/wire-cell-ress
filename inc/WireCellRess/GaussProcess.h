@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <tuple>
+#include <Eigen/Dense>
 
 namespace WireCell {
   class GaussProcess{
@@ -25,7 +26,8 @@ namespace WireCell {
     
     int flag_cal_kernel;
     void cal_kernel();
-
+    Eigen::MatrixXd mat_sigma;
+    Eigen::MatrixXd inv_mat_sigma;
 
     
     std::vector<double> vec_data_x;
