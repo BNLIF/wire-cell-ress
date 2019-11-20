@@ -1,4 +1,4 @@
-#include "WireCellRess/ElasticNetModel.h"
+#include "WCPRess/ElasticNetModel.h"
 
 #include <Eigen/Dense>
 using namespace Eigen;
@@ -14,16 +14,16 @@ using namespace std;
  * where lambda = a + b and alpha = a / (a + b)
  */
 
-WireCell::ElasticNetModel::ElasticNetModel(double lambda, double alpha, int max_iter, double TOL, bool non_negtive)
+WCP::ElasticNetModel::ElasticNetModel(double lambda, double alpha, int max_iter, double TOL, bool non_negtive)
 : lambda(lambda), alpha(alpha), max_iter(max_iter), TOL(TOL), non_negtive(non_negtive)
 {
     name = "Elastic net";
 }
 
-WireCell::ElasticNetModel::~ElasticNetModel()
+WCP::ElasticNetModel::~ElasticNetModel()
 {}
 
-void WireCell::ElasticNetModel::Fit()
+void WCP::ElasticNetModel::Fit()
 {
     // initialize solution to zero
     Eigen::VectorXd beta = VectorXd::Zero(_X.cols());
@@ -91,7 +91,7 @@ void WireCell::ElasticNetModel::Fit()
     Setbeta(beta);
 }
 
-double WireCell::ElasticNetModel::_soft_thresholding(double delta, double lambda_)
+double WCP::ElasticNetModel::_soft_thresholding(double delta, double lambda_)
 {
 
     if (delta > lambda_) {

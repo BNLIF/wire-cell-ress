@@ -5,7 +5,7 @@
 #include <tuple>
 #include <Eigen/Dense>
 
-namespace WireCell {
+namespace WCP {
   class GaussProcess{
   public:
     GaussProcess(int flag_kernel = 1);

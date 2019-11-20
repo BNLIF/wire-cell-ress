@@ -1,26 +1,26 @@
-#include "WireCellRess/LinearModel.h"
+#include "WCPRess/LinearModel.h"
 
 #include <Eigen/Dense>
 using namespace Eigen;
 
-WireCell::LinearModel::LinearModel()
+WCP::LinearModel::LinearModel()
 {}
 
-WireCell::LinearModel::~LinearModel()
+WCP::LinearModel::~LinearModel()
 {}
 
-VectorXd WireCell::LinearModel::Predict()
+VectorXd WCP::LinearModel::Predict()
 {
     return _X * _beta;
 }
 
-double WireCell::LinearModel::chi2_base()
+double WCP::LinearModel::chi2_base()
 {
     return ( _y - Predict() ).squaredNorm();
 }
 
 
-double WireCell::LinearModel::MeanResidual()
+double WCP::LinearModel::MeanResidual()
 {
     return ( _y - Predict() ).norm() / _y.size();
 }

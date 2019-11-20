@@ -1,5 +1,5 @@
-#include "WireCellRess/LassoModel.h"
-#include "WireCellRess/ElasticNetModel.h"
+#include "WCPRess/LassoModel.h"
+#include "WCPRess/ElasticNetModel.h"
 
 #include <Eigen/Dense>
 using namespace Eigen;
@@ -7,9 +7,9 @@ using namespace Eigen;
 #include <iostream>
 using namespace std;
 
-void test_model(WireCell::LinearModel& m, MatrixXd& G, VectorXd& W);
-void test_lasso(WireCell::LassoModel& m, MatrixXd& G, VectorXd& W);
-void print_results(WireCell::LinearModel& m, VectorXd& C);
+void test_model(WCP::LinearModel& m, MatrixXd& G, VectorXd& W);
+void test_lasso(WCP::LassoModel& m, MatrixXd& G, VectorXd& W);
+void print_results(WCP::LinearModel& m, VectorXd& C);
 
 int main(int argc, char* argv[])
 {
@@ -43,25 +43,25 @@ int main(int argc, char* argv[])
     // cout << C.transpose() << endl << endl;
     double lambda = 1;
 
-    // WireCell::ElasticNetModel m(lambda, 0.95, 100000, 1e-4);
+    // WCP::ElasticNetModel m(lambda, 0.95, 100000, 1e-4);
     // test_model(m, G, W);
     // print_results(m, C);
 
-    WireCell::LassoModel m2(lambda, 10000, 1e-3);
+    WCP::LassoModel m2(lambda, 10000, 1e-3);
     test_lasso(m2, G, W);
     print_results(m2, C);
 
     return 0;
 }
 
-void test_model(WireCell::LinearModel& m, MatrixXd& G, VectorXd& W)
+void test_model(WCP::LinearModel& m, MatrixXd& G, VectorXd& W)
 {
     m.SetData(G, W);
     m.Fit();
 
 }
 
-void test_lasso(WireCell::LassoModel& m, MatrixXd& G, VectorXd& W)
+void test_lasso(WCP::LassoModel& m, MatrixXd& G, VectorXd& W)
 {
     m.SetData(G, W);
 
@@ -72,7 +72,7 @@ void test_lasso(WireCell::LassoModel& m, MatrixXd& G, VectorXd& W)
     m.Fit();
 }
 
-void print_results(WireCell::LinearModel& m, VectorXd& C)
+void print_results(WCP::LinearModel& m, VectorXd& C)
 {
     VectorXd beta = m.Getbeta();
 

@@ -1,2 +1,2 @@
-bld.make_package('WireCellRess', use='EIGEN')
+bld.make_package('WCPRess', use='EIGEN')
 

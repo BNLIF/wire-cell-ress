@@ -1,7 +1,7 @@
-#include "WireCellRess/GaussProcess.h"
+#include "WCPRess/GaussProcess.h"
 #include <cmath>
 
-using namespace WireCell;
+using namespace WCP;
 
 GaussProcess::GaussProcess(int flag_kernel)
   : flag_kernel(flag_kernel)

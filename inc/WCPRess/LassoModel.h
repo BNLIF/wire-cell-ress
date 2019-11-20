@@ -1,9 +1,9 @@
 #ifndef WIRECELLRESS_LASSOMODEL_H
 #define WIRECELLRESS_LASSOMODEL_H
 
-#include "WireCellRess/ElasticNetModel.h"
+#include "WCPRess/ElasticNetModel.h"
 
-namespace WireCell {
+namespace WCP {
 
 class LassoModel: public ElasticNetModel {
 public:

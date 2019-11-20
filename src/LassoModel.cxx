@@ -1,4 +1,4 @@
-#include "WireCellRess/LassoModel.h"
+#include "WCPRess/LassoModel.h"
 
 #include <Eigen/Dense>
 #include <Eigen/Sparse>
@@ -11,22 +11,22 @@ using namespace std;
  * 1/(2) * ||Y - beta * X||_2^2 + N * lambda * ||beta||_1
  */
 
-WireCell::LassoModel::LassoModel(double lambda, int max_iter, double TOL, bool non_negtive)
+WCP::LassoModel::LassoModel(double lambda, int max_iter, double TOL, bool non_negtive)
 : ElasticNetModel(lambda, 1., max_iter, TOL, non_negtive)
 , flag_initial_values(false)
 {
     name = "Lasso";
 }
 
-WireCell::LassoModel::~LassoModel()
+WCP::LassoModel::~LassoModel()
 {}
 
-void WireCell::LassoModel::Set_init_values(std::vector<double> values){
+void WCP::LassoModel::Set_init_values(std::vector<double> values){
   flag_initial_values = true;
   init_betas = values;
 }
 
-void WireCell::LassoModel::Fit()
+void WCP::LassoModel::Fit()
 {
   // initialize solution to zero
   Eigen::VectorXd beta = VectorXd::Zero(_X.cols());
@@ -122,7 +122,7 @@ void WireCell::LassoModel::Fit()
   Setbeta(beta);
 }
 
-double WireCell::LassoModel::chi2_l1()
+double WCP::LassoModel::chi2_l1()
 {
   return 2 * lambda * Getbeta().lpNorm<1>() * Gety().size() ;
 }

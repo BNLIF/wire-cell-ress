@@ -4,7 +4,7 @@
 #include <Eigen/Dense>
 #include <string>
 
-namespace WireCell {
+namespace WCP {
 
 class LinearModel {
 public:

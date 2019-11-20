@@ -1,11 +1,11 @@
 #ifndef WIRECELLRESS_ELASTICNETMODEL_H
 #define WIRECELLRESS_ELASTICNETMODEL_H
 
-#include "WireCellRess/LinearModel.h"
+#include "WCPRess/LinearModel.h"
 #include <vector>
 #include <Eigen/Dense>
 
-namespace WireCell {
+namespace WCP {
 
 class ElasticNetModel: public LinearModel {
 public:
