@@ -2,6 +2,10 @@
 #include <limits>
 
 namespace gshf {
+  MarqFitAlg::MarqFitAlg(){
+  }
+  MarqFitAlg::~MarqFitAlg(){
+  }
 
   /* multi-Gaussian function, number of Gaussians is npar divided by 3 */
   void MarqFitAlg::fgauss(const float yd[],

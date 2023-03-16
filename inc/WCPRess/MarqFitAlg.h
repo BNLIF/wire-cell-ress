@@ -21,7 +21,7 @@ namespace gshf {
   class MarqFitAlg {
   public:
     explicit MarqFitAlg();
-    virtual ~MarqFitAlg() {}
+    virtual ~MarqFitAlg();
 
     int cal_perr(float p[], float y[], const int nParam, const int nData, float perr[]);
     int mrqdtfit(float& lambda,
