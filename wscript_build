@@ -1,2 +1,0 @@
-bld.make_package('WCPRess', use='EIGEN')
-
